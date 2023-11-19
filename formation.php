@@ -1,5 +1,19 @@
 <h3>Formations</h3>
-    <ul>
-      <li>2020-2021 : 1er Bachelier écriture multimèdia, Haute École ISFSC sur Schaerbeek</li>
-      <li>2022-2023 : 2er Bachelier écriture multimèdia, Haute École ISFSC sur Schaerbeek</li>
-    </ul>
+<ul>
+  <?php
+  $formationsList = new WP_Query([
+      'post_type' => 'formations',
+      'posts_per_page' => -1
+  ]);
+  while ( $formationsList->have_posts() ) : $formationsList->the_post();
+      $start_date = get_post_meta(get_the_ID(), 'start_date', true);
+      $end_date = get_post_meta(get_the_ID(), 'end_date', true);
+      ?>
+      <li>
+          <?php if($start_date && $end_date): ?>
+              <?php echo $start_date; ?> - <?php echo $end_date; ?> : 
+          <?php endif; ?>
+          <?php the_title(); ?>
+      </li>
+  <?php endwhile; ?>
+</ul>

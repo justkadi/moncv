@@ -2,12 +2,10 @@
 Theme: cv
 */
 
-body{ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+body{ 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color:rgb(230, 188, 188)
-
 }
 h3{
-background-color: rgb(189, 136, 136);
-scroll-padding: ;
-
+    background-color: rgb(189, 136, 136);
 }
